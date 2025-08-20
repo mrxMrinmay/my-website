@@ -12,7 +12,7 @@ It contains:
 - (https://drive.google.com/)
 - 
 - 📒 Class Notes –
--  [Click here](https://drive.google.com/)  
+-    
 
 ---
 

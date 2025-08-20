@@ -16,4 +16,4 @@ It introduces me, showcases my skills and hobbies, and provides ways to connect 
 ## 🚀 How to View  
 Clone this repo and open `index.html` in your browser:  
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/mrxMrinmay/your-repo-name.git

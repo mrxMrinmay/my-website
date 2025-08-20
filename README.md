@@ -31,7 +31,7 @@ It contains:
 ## 📬 Contact Me  
 
 - **Email:** mboro3719@gmail.com
-- **GitHub:** [github.com/mithu-kachari](https://github.com/mithu-kachari) *(replace with your real profile link)*  
+- **GitHub:**  https://mrxMrinmay.github.io/my-website/
 - **LinkedIn: pending *  
 
 ---

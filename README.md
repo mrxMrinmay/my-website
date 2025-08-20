@@ -18,7 +18,7 @@ It contains:
 
 ## 👤 About Me  
 
-**Name:** MrinmayKachari  
+**Name:** Mrinmay Kachari  
 **Background:** BSc Computer Science Student (3rd Semester)  
 **Skills:** C, C++(intermediate),  HTML,  DBMS,  
 **Hobbies:** Running  playing Volleyball (training as a spiker), Reading tech blogs  

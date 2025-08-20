@@ -9,7 +9,7 @@ It contains:
 - 👤 About Me – My background, skills, hobbies, and career goals  
 - 📞 Contact – My email and social links  
 - 💻 Programs Repository –
-- (https://drive.google.com/)
+- 
 - 
 - 📒 Class Notes –
 -    

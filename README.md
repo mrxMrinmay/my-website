@@ -1,19 +1,39 @@
 
-# 🌐 Personal Website  
+# 🌐 My Personal Website  
 
-A simple personal website created using **HTML & CSS**.  
-It introduces me, showcases my skills and hobbies, and provides ways to connect with me.  
+Welcome to my personal website repository! 🚀  
+This website is designed as part of my academic project and also serves as a personal portfolio.  
 
-## 📌 Features  
-- **Home Page** – Welcome page with intro  
-- **About Me** – Background, skills, hobbies, and goals  
-- **Contact** – Email and social media links  
+It contains:  
+- 🏠 Home Page – A welcome page introducing the website  
+- 👤 About Me – My background, skills, hobbies, and career goals  
+- 📞 Contact – My email and social links  
+- 💻 Programs Repository –
+- (https://drive.google.com/)
+- 
+- 📒 Class Notes –
+-  [Click here](https://drive.google.com/)  
 
-## 🛠️ Technologies Used  
-- HTML5  
-  
+---
 
-## 🚀 How to View  
-Clone this repo and open `index.html` in your browser:  
-```bash
-git clone https://github.com/mrxMrinmay/your-repo-name.git
+## 👤 About Me  
+
+**Name:** MrinmayKachari  
+**Background:** BSc Computer Science Student (3rd Semester)  
+**Skills:** C, C++(intermediate),  HTML,  DBMS,  
+**Hobbies:** Running  playing Volleyball (training as a spiker), Reading tech blogs  
+**Career Goals:**  
+- Crack the **CDS exam** and join the **Indian Military Academy (IMA)**  
+- Build strong knowledge in Computer Science & Programming  
+
+---
+
+## 📬 Contact Me  
+
+- **Email:** mboro3719@gmail.com
+- **GitHub:** [github.com/mithu-kachari](https://github.com/mithu-kachari) *(replace with your real profile link)*  
+- **LinkedIn: pending *  
+
+---
+
+✨ *Thank you for visiting my personal websimithu-kacharikachari

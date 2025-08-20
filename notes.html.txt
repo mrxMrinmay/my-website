@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Class Notes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>My Class Notes</h2>
+  <p><a href="YOUR_GOOGLE_DRIVE_LINK" target="_blank">Click here to view my class notes</a></p>
+
+  <a href="index.html">⬅ Back to Home</a>
+</body>
+</html>

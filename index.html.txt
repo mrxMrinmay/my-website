@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Personal Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Welcome to My Website</h1>
+  <p>This is my personal website for college assignment.</p>
+  
+  <nav>
+    <a href="index.html">Home</a> |
+    <a href="about.html">About Me</a> |
+    <a href="contact.html">Contact</a> |
+    <a href="programs.html">Programs</a> |
+    <a href="notes.html">Class Notes</a>
+  </nav>
+</body>
+</html>

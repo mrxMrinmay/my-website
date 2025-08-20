@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Contact Me</h2>
+  <p>Email: mboro3719@gmail.com</p>
+  <p>GitHub: <a href="https://github.com/mrxMrinmay" target="_blank">github.com/mrxMrinmay</a></p>
+  <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
+
+  <a href="index.html">⬅ Back to Home</a>
+</body>
+</html>

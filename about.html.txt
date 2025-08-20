@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>About Me</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>About Me</h2>
+  <p><b>Name:</b> Mithu Kachari</p>
+  <p><b>Background:</b> BSc Computer Science Student</p>
+  <p><b>Skills:</b> C, C++, HTML, Python</p>
+  <p><b>Hobbies:</b> Volleyball, Reading</p>
+  <p><b>Career Goal:</b> Join Indian Military Academy (IMA)</p>
+
+  <a href="index.html">⬅ Back to Home</a>
+</body>
+</html>

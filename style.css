@@ -1,19 +1,75 @@
-button {
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  color: #fff;
-  border: none;
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: bold;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+section {
+  padding: 50px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+h2 {
+  color: #444;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.card {
+  background: white;
   border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.4s ease-in-out;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
 }
 
-button:hover {
-  transform: scale(1.1) rotate(-2deg);
-  background: linear-gradient(135deg, #2575fc, #6a11cb);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+.contact-info p, 
+.links a {
+  font-size: 16px;
+  margin: 8px 0;
+  text-decoration: none;
+  display: block;
+  color: #0077cc;
 }
 
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* Social icons */
+.social-links {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.social-links a {
+  margin: 0 10px;
+  font-size: 30px;
+  transition: transform 0.3s;
+}
+
+.social-links a:hover {
+  transform: scale(1.2);
+}
+
+/* Instagram gradient */
+.fa-instagram {
+  background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Facebook blue */
+.fa-facebook {
+  color: #1877F2;
+}

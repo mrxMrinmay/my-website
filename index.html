@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -63,10 +63,14 @@
       box-shadow: 0 0 20px #0ff, 0 0 40px #00f;
     }
 
-    .hidden {
-      display: none;
+    /* DETAILS INITIALLY HIDDEN (but still on page) */
+    #details {
+      opacity: 0;
+      transform: scale(0);
+      transition: opacity 0.3s ease;
     }
 
+    /* PORTAL EFFECT */
     .dimension {
       animation: portal 2s ease forwards;
     }
@@ -106,7 +110,7 @@
   <div class="container">
     <button id="clickBtn" onclick="showDetails()">Click Me</button>
     
-    <div id="details" class="hidden">
+    <div id="details">
       <div class="section">
         <h2>About Me</h2>
         <p><strong>Name:</strong> Mrinmay Kachari</p>
@@ -125,8 +129,8 @@
   <script>
     function showDetails() {
       document.body.style.background = "radial-gradient(circle, #000428, #004e92)";
-      document.getElementById("details").classList.remove("hidden");
-      document.getElementById("details").classList.add("dimension");
+      const details = document.getElementById("details");
+      details.classList.add("dimension");
       document.getElementById("clickBtn").style.display = "none"; // hide button
     }
 

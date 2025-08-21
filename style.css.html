@@ -1,20 +1,52 @@
+/* --- Page Fade on Load --- */
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  background: #f4f4f4;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+body.loaded {
+  opacity: 1;
 }
 
-h1, h2 {
-  color: #2c3e50;
+/* --- Scroll Reveal Animation --- */
+.section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-nav a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #2980b9;
+/* --- Hover Effects for Cards/Buttons --- */
+.card, .btn {
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+.card:hover, .btn:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-a {
-  color: #2980b9;
-
+/* --- Button Ripple Effect --- */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+.btn::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  transition: transform 0.5s, opacity 1s;
+}
+.btn:active::after {
+  transform: translate(-50%, -50%) scale(2);
+  opacity: 1;
 }

@@ -3,36 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Button Hover Effect</title>
+  <title>Glowing Gradient Button</title>
   <style>
     body {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background: #f2f2f6;
+      background: #0d0d0d;
       margin: 0;
     }
 
     .btn {
       padding: 15px 40px;
       font-size: 18px;
+      font-family: Arial, sans-serif;
       color: #fff;
-      background: linear-gradient(45deg, #0072ff, #6a11cb);
       border: none;
       border-radius: 15px;
       cursor: pointer;
-      transition: all 0.4s ease;
+      outline: none;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+
+      /* Gradient background with animation */
+      background: linear-gradient(270deg, #ff00ff, #0072ff, #00ffcc, #ffcc00, #ff0066);
+      background-size: 400% 400%;
+      animation: gradientShift 8s ease infinite;
     }
 
+    /* Gradient animation keyframes */
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Desktop hover glow */
     .btn:hover {
-      transform: rotate(-8deg) scale(1.05);
-      box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+      transform: rotate(-8deg) scale(1.1);
+      box-shadow: 0 0 25px #ff00ff,
+                  0 0 50px #0072ff,
+                  0 0 75px #00ffcc;
+    }
+
+    /* Mobile tap glow effect */
+    .btn.active {
+      transform: rotate(8deg) scale(1.1);
+      box-shadow: 0 0 25px #ff00ff,
+                  0 0 50px #0072ff,
+                  0 0 75px #00ffcc,
+                  0 0 100px #ff0066;
     }
   </style>
 </head>
 <body>
-  <button class="btn">Hover Me!</button>
+  <button class="btn">Touch Me!</button>
+
+  <script>
+    const btn = document.querySelector(".btn");
+
+    btn.addEventListener("click", () => {
+      btn.classList.add("active");
+      setTimeout(() => {
+        btn.classList.remove("active");
+      }, 1500); // glow stays for 1.5s
+    });
+  </script>
 </body>
 </html>

@@ -44,6 +44,15 @@
       transform: scale(1.1);
       box-shadow: 0 0 35px rgba(0, 255, 255, 1);
     }
+    /* Hidden section style */
+    #about, #contact {
+      display: none;
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     footer {
       background-color: #111;
       padding: 20px;
@@ -63,8 +72,8 @@
 
   <section id="home">
     <h2>Home</h2>
-    <p>Hello! 👋 This is my personal website. Explore to know more about me.</p>
-    <button class="glow-btn">Click Me</button>
+    <p>Hello! 👋 This is my personal website. Click below to know more about me.</p>
+    <button class="glow-btn" onclick="showDetails()">Click Me</button>
   </section>
 
   <section id="about">
@@ -84,5 +93,13 @@
   <footer>
     <p>© 2025 Mrinmay Kachari. All rights reserved.</p>
   </footer>
+
+  <script>
+    function showDetails() {
+      document.getElementById("about").style.display = "block";
+      document.getElementById("contact").style.display = "block";
+      document.getElementById("home").scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
 </body>
 </html>

@@ -3,90 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mrinmay Kachari - Personal Website</title>
+  <title>Mrinmay's Website</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #0d0d0d;
-      color: #fff;
+      background-color: #000;
+      color: white;
+      text-align: center;
     }
-
     header {
-      background: #111;
-      padding: 15px;
-      text-align: center;
-      position: sticky;
-      top: 0;
+      background-color: #111;
+      padding: 20px;
     }
-
     header h1 {
-      margin: 0;
-      font-size: 24px;
       color: #00ffcc;
     }
-
-    nav {
-      margin-top: 10px;
-    }
-
     nav a {
-      color: #fff;
       margin: 0 15px;
+      color: white;
       text-decoration: none;
-      transition: color 0.3s;
+      font-weight: bold;
     }
-
-    nav a:hover {
-      color: #00ffcc;
-    }
-
     section {
-      padding: 50px;
-      text-align: center;
+      padding: 50px 20px;
     }
-
-    /* Button Styling */
-    .btn {
-      margin-top: 20px;
+    .glow-btn {
       padding: 15px 40px;
+      background: linear-gradient(45deg, yellow, lime, cyan);
+      color: white;
       font-size: 18px;
-      color: #fff;
+      font-weight: bold;
       border: none;
-      border-radius: 15px;
+      border-radius: 12px;
       cursor: pointer;
-      outline: none;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      background: linear-gradient(270deg, #ff00ff, #0072ff, #00ffcc, #ffcc00, #ff0066);
-      background-size: 400% 400%;
-      animation: gradientShift 8s ease infinite;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
+      transition: transform 0.2s;
     }
-
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .btn:hover {
+    .glow-btn:hover {
       transform: scale(1.1);
-      box-shadow: 0 0 25px #ff00ff,
-                  0 0 50px #0072ff,
-                  0 0 75px #00ffcc;
+      box-shadow: 0 0 35px rgba(0, 255, 255, 1);
     }
-
-    .btn.active {
-      transform: scale(1.1);
-      box-shadow: 0 0 25px #ff00ff,
-                  0 0 50px #0072ff,
-                  0 0 75px #00ffcc,
-                  0 0 100px #ff0066;
+    footer {
+      background-color: #111;
+      padding: 20px;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>Welcome to My Website</h1>
     <nav>
@@ -99,32 +64,25 @@
   <section id="home">
     <h2>Home</h2>
     <p>Hello! 👋 This is my personal website. Explore to know more about me.</p>
-    <button class="btn">Click Me</button>
+    <button class="glow-btn">Click Me</button>
   </section>
 
   <section id="about">
     <h2>About Me</h2>
     <p>My name is <b>Mrinmay Kachari</b>.</p>
-    <p>I am currently a <b>BSc Computer Science student</b>.</p>
-    <p>My hobbies include <b>running, playing football, volleyball, trekking</b>.</p>
-    <p>My career goal is <b>to join the Indian Military Academy (IMA)</b>.</p>
+    <p>I am currently a BSc Computer Science student.</p>
+    <p>My hobbies include running, playing football, volleyball, and trekking.</p>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Email: <b>mboro3719@gmail.com</b></p>
-    <p>Phone: <b>+91 6003260207</b></p>
-    <p>GitHub: <a href="https://github.com/mrxMrinmay" target="_blank">mrxMrinmay</a></p>
+    <p>Email: <a href="mailto:mboro3719@gmail.com" style="color:#00ffcc;">mboro3719@gmail.com</a></p>
+    <p>Phone: <a href="tel:+916003260207" style="color:#00ffcc;">+91 6003260207</a></p>
+    <p>GitHub: <a href="https://github.com/mrxMrinmay" target="_blank" style="color:#00ffcc;">github.com/mrxMrinmay</a></p>
   </section>
 
-  <script>
-    const btn = document.querySelector(".btn");
-    btn.addEventListener("click", () => {
-      btn.classList.add("active");
-      setTimeout(() => {
-        btn.classList.remove("active");
-      }, 1500);
-    });
-  </script>
+  <footer>
+    <p>© 2025 Mrinmay Kachari. All rights reserved.</p>
+  </footer>
 </body>
 </html>

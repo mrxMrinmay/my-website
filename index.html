@@ -3,38 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Transition Effect Demo</title>
+  <title>Button Hover Effect</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f9;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      background: #f2f2f6;
+      margin: 0;
     }
 
-    button {
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      color: #fff;
-      border: none;
-      padding: 14px 30px;
+    .btn {
+      padding: 15px 40px;
       font-size: 18px;
-      font-weight: bold;
-      border-radius: 12px;
+      color: #fff;
+      background: linear-gradient(45deg, #0072ff, #6a11cb);
+      border: none;
+      border-radius: 15px;
       cursor: pointer;
-      transition: all 0.4s ease-in-out;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: all 0.4s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
-    button:hover {
-      transform: scale(1.1) rotate(-2deg);
-      background: linear-gradient(135deg, #2575fc, #6a11cb);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    .btn:hover {
+      transform: rotate(-8deg) scale(1.05);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.3);
     }
   </style>
 </head>
 <body>
-  <button>Hover Me!</button>
+  <button class="btn">Hover Me!</button>
 </body>
 </html>

@@ -3,90 +3,110 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Personal Website</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Mrinmay Kachari - Personal Website</title>
+  <style>
+    body {
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
 
-  <!-- Font Awesome for social icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    h1, h2 {
+      color: #00ffcc;
+    }
+
+    .hidden-section {
+      display: none; 
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .show {
+      display: block;
+      opacity: 1;
+    }
+
+    .btn {
+      background: #00ffcc;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 20px;
+      box-shadow: 0 0 20px #00ffcc;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 35px #00ffcc;
+    }
+
+    /* Social media icons */
+    .social-links a {
+      margin: 0 10px;
+      display: inline-block;
+      transition: transform 0.3s, filter 0.3s;
+    }
+
+    .social-links a:hover {
+      transform: scale(1.2);
+      filter: drop-shadow(0 0 10px #00ffcc);
+    }
+
+    .social-links img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+  </style>
 </head>
 <body>
 
-  <header>
-    <h1>Welcome to My Website</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About Me</a>
-      <a href="#programs">Programs</a>
-      <a href="#notes">Notes</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
   <!-- Home Section -->
-  <section id="home" class="hidden">
-    <h2>Home</h2>
-    <p>Hello! 👋 This is my personal website. Click below to know more about me.</p>
-    <button class="glow-btn">Click Me</button>
-  </section>
+  <h1>Home</h1>
+  <p>Hello! 👋 This is my personal website. Click below to know more about me.</p>
+  <button id="clickBtn" class="btn" onclick="showSections()">Click Me</button>
 
-  <!-- About Me Section -->
-  <section id="about" class="hidden">
+  <!-- Sections Hidden Initially -->
+  <div id="moreSections" class="hidden-section">
+    
+    <!-- About Me -->
     <h2>About Me</h2>
-    <p>My name is Mrinmay Kachari.</p>
-    <p>I am currently a BSc Computer Science student.</p>
-    <p>My hobbies include running, playing football, volleyball, and trekking.</p>
-  </section>
+    <p>My name is Mrinmay Kachari.<br>
+    I am currently a BSc Computer Science student.<br>
+    My hobbies include running, playing football, volleyball, and trekking.</p>
 
-  <!-- Programs Section -->
-  <section id="programs" class="hidden">
+    <!-- Programs Repository -->
     <h2>Programs Repository</h2>
     <p>Here you can find all my program codes:</p>
-    <a href="https://drive.google.com/drive/folders/1wMhRXKAMOJIqgk3S4GwKnjPskQajTRcP" target="_blank">
-      View My Programs
-    </a>
-  </section>
+    <a href="https://drive.google.com/drive/folders/1wMhRXKAMOJIqgk3S4GwKnjPskQajTRcP" target="_blank">View My Programs</a>
 
-  <!-- Notes Section -->
-  <section id="notes" class="hidden">
+    <!-- Class Notes -->
     <h2>Class Notes</h2>
     <p>Here you can access my class notes:</p>
-    <a href="https://drive.google.com/drive/folders/1wIUcqGAFgREACY6jaJiEg5LK9_4le6YM" target="_blank">
-      View My Notes
-    </a>
-  </section>
+    <a href="https://drive.google.com/drive/folders/1wIUcqGAFgREACY" target="_blank">View Notes</a>
 
-  <!-- Contact Section -->
-  <section id="contact" class="hidden">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:mboro3719@gmail.com">mboro3719@gmail.com</a></p>
-    <p>Phone: <a href="tel:+916003260207">+91 6003260207</a></p>
-
+    <!-- Social Media -->
+    <h2>Connect With Me</h2>
     <div class="social-links">
-      <a href="https://instagram.com/mrinmaykacharii" target="_blank">
-        <i class="fab fa-instagram"></i>
+      <a href="https://www.instagram.com/mrinmaykacharii" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
       </a>
       <a href="https://www.facebook.com/mrinmoy.kachari.75" target="_blank">
-        <i class="fab fa-facebook"></i>
-      </a>
-      <a href="https://github.com/mrxMrinmay" target="_blank">
-        <i class="fab fa-github"></i>
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
       </a>
     </div>
-  </section>
+  </div>
 
-  <!-- JavaScript for Scroll Animation -->
   <script>
-    const hiddenSections = document.querySelectorAll('.hidden');
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.2 });
-
-    hiddenSections.forEach(section => observer.observe(section));
+    function showSections() {
+      let sections = document.getElementById("moreSections");
+      sections.classList.add("show"); // Show with fade effect
+      document.getElementById("clickBtn").style.display = "none"; // Hide button
+    }
   </script>
 
 </body>

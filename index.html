@@ -1,136 +1,93 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mrinmay's Website</title>
+  <title>Mrinmay Kachari - Personal Website</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #000;
+      background: black;
       color: white;
       text-align: center;
+      overflow-x: hidden;
     }
-    header {
-      background-color: #111;
-      padding: 20px;
+
+    #content {
+      display: none; /* hidden at first */
+      animation: fadeIn 2s ease-in-out;
     }
-    header h1 {
-      color: #00ffcc;
+
+    button {
+      margin-top: 40vh;
+      padding: 15px 40px;
+      font-size: 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 10px;
+      background: cyan;
+      color: black;
+      transition: transform 0.3s, background 0.3s;
     }
-    nav a {
-      margin: 0 15px;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
+
+    button:hover {
+      transform: scale(1.1);
+      background: lime;
     }
+
     section {
       padding: 50px 20px;
+      border-bottom: 1px solid gray;
     }
-    .glow-btn {
-      padding: 15px 40px;
-      background: linear-gradient(45deg, #ff00cc, #3333ff, #00ffcc, #ffff00);
-      background-size: 400% 400%;
-      color: white;
-      font-size: 18px;
-      font-weight: bold;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      box-shadow: 
-        0 0 10px #ff00cc,
-        0 0 20px #3333ff,
-        0 0 40px #00ffcc,
-        0 0 60px #ffff00;
-      animation: glow 3s ease-in-out infinite, gradient 6s ease infinite;
-      transition: transform 0.2s;
+
+    section h1 {
+      color: cyan;
     }
-    .glow-btn:hover {
-      transform: scale(1.1);
-    }
-    /* Fade in effect */
-    #about, #contact, #programs, #notes {
-      display: none;
-      animation: fadeIn 1s ease-in-out;
-    }
+
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes glow {
-      0% { box-shadow: 0 0 10px #ff00cc, 0 0 20px #3333ff, 0 0 40px #00ffcc, 0 0 60px #ffff00; }
-      50% { box-shadow: 0 0 20px #ffff00, 0 0 40px #00ffcc, 0 0 60px #3333ff, 0 0 80px #ff00cc; }
-      100% { box-shadow: 0 0 10px #ff00cc, 0 0 20px #3333ff, 0 0 40px #00ffcc, 0 0 60px #ffff00; }
-    }
-    @keyframes gradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    footer {
-      background-color: #111;
-      padding: 20px;
-      font-size: 14px;
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to My Website</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About Me</a>
-      <a href="#contact">Contact</a>
-      <a href="#programs">Programs</a>
-      <a href="#notes">Class Notes</a>
-    </nav>
-  </header>
 
-  <section id="home">
-    <h2>Home</h2>
-    <p>Hello! 👋 This is my personal website. Click below to know more about me.</p>
-    <button class="glow-btn" onclick="showDetails()">Click Me</button>
-  </section>
+  <!-- First screen -->
+  <button id="enterBtn">Click Me</button>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>My name is <b>Mrinmay Kachari</b>.</p>
-    <p>I am currently a BSc Computer Science student.</p>
-    <p>My hobbies include running, playing football, volleyball, and trekking.</p>
-  </section>
+  <!-- Hidden content -->
+  <div id="content">
+    <section id="about">
+      <h1>About Me</h1>
+      <p>Name: Mrinmay Kachari</p>
+      <p>Hobbies: Running, Football, Volleyball, Trekking</p>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:mboro3719@gmail.com" style="color:#00ffcc;">mboro3719@gmail.com</a></p>
-    <p>Phone: <a href="tel:+916003260207" style="color:#00ffcc;">+91 6003260207</a></p>
-    <p>GitHub: <a href="https://github.com/mrxMrinmay" target="_blank" style="color:#00ffcc;">github.com/mrxMrinmay</a></p>
-  </section>
+    <section id="contact">
+      <h1>Contact</h1>
+      <p>Email: mboro3719@gmail.com</p>
+      <p>Phone: 6003260207</p>
+      <p>GitHub: <a href="https://github.com/mrxMrinmay" target="_blank">mrxMrinmay</a></p>
+    </section>
 
-  <section id="programs">
-    <h2>Programs Repository</h2>
-    <p>Here you can find my coding projects and subject programs:</p>
-    <p><a href="https://drive.google.com/drive/folders/1wMhRXKAMOJIqgk3S4GwKnjPskQajTRcP" target="_blank" style="color:#00ffcc;">📂 Open My Programs</a></p>
-  </section>
+    <section id="programs">
+      <h1>Programs Repository</h1>
+      <p><a href="https://drive.google.com/drive/folders/1wMhRXKAMOJIqgk3S4GwKnjPskQajTRcP" target="_blank">Click here to view my programs</a></p>
+    </section>
 
-  <section id="notes">
-    <h2>Class Notes</h2>
-    <p>Here are my class notes for the current semester:</p>
-    <p><a href=" https://drive.google.com/drive/folders/1wIUcqGAFgREACY6jaJiEg5LK9_4le6YM" target="_blank" style="color:#00ffcc;">📝 Open My Notes</a></p>
-  </section>
-
-  <footer>
-    <p>© 2025 Mrinmay Kachari. All rights reserved.</p>
-  </footer>
+    <section id="notes">
+      <h1>Class Notes</h1>
+      <p><a href="https://drive.google.com/drive/folders/1wIUcqGAFgREACY6jaJiEg5LK9_4le6YM" target="_blank">Click here to view my notes</a></p>
+    </section>
+  </div>
 
   <script>
-    function showDetails() {
-      document.getElementById("about").style.display = "block";
-      document.getElementById("contact").style.display = "block";
-      document.getElementById("programs").style.display = "block";
-      document.getElementById("notes").style.display = "block";
-      document.getElementById("about").scrollIntoView({ behavior: "smooth" });
-    }
+    document.getElementById("enterBtn").addEventListener("click", function() {
+      this.style.display = "none"; // hide button
+      document.getElementById("content").style.display = "block"; // show all sections
+    });
   </script>
+
 </body>
 </html>

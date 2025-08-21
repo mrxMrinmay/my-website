@@ -3,56 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- External CSS -->
+  <title>My Personal Website</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
   <header>
     <h1>Welcome to My Website</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#programs">Programs</a>
+      <a href="#notes">Notes</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
+  <!-- Home Section -->
+  <section id="home" class="hidden">
+    <h2>Home</h2>
+    <p>Hello! 👋 This is my personal website. Click below to know more about me.</p>
+    <button class="glow-btn">Click Me</button>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="hidden">
+    <h2>About Me</h2>
+    <p>My name is Mrinmay Kachari.</p>
+    <p>I am currently a BSc Computer Science student.</p>
+    <p>My hobbies include running, playing football, volleyball, and trekking.</p>
+  </section>
+
+  <!-- Programs Section -->
+  <section id="programs" class="hidden">
+    <h2>Programs Repository</h2>
+    <p>Here you can find all my program codes:</p>
+    <a href="https://drive.google.com/drive/folders/1wMhRXKAMOJIqgk3S4GwKnjPskQajTRcP" target="_blank">
+      View My Programs
+    </a>
+  </section>
+
+  <!-- Notes Section -->
+  <section id="notes" class="hidden">
+    <h2>Class Notes</h2>
+    <p>Here you can access my class notes:</p>
+    <a href="https://drive.google.com/drive/folders/1wIUcqGAFgREACY6jaJiEg5LK9_4le6YM" target="_blank">
+      View My Notes
+    </a>
+  </section>
+
   <!-- Contact Section -->
-  <section id="contact">
-    <div class="card">
-      <h2>📩 Contact Me</h2>
-      <div class="contact-info">
-        <p><strong>Email:</strong> mboro3719@gmail.com</p>
-        <p><strong>Phone:</strong> 6003260207</p>
-        <p><strong>GitHub:</strong> <a href="https://github.com/mrxMrinmay" target="_blank">mrxMrinmay</a></p>
-      </div>
-      
-      <!-- Social Media Icons -->
-      <div class="social-links">
-        <a href="https://www.instagram.com/mrinmaykacharii" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/Mrinmay kachari" target="_blank"><i class="fab fa-facebook"></i></a>
-      </div>
+  <section id="contact" class="hidden">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:mboro3719@gmail.com">mboro3719@gmail.com</a></p>
+    <p>Phone: <a href="tel:+916003260207">+91 6003260207</a></p>
+
+    <div class="social-links">
+      <a href="https://instagram.com/mrinmaykacharii" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/mrinmoy.kachari.75" target="_blank">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://github.com/mrxMrinmay" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
     </div>
   </section>
 
-  <!-- Programs Repository Section -->
-  <section id="programs">
-    <div class="card">
-      <h2>💻 Programs Repository</h2>
-      <div class="links">
-        <a href="https://drive.google.com/drive/folders/1wMhRXKAMOJIqgk3S4GwKnjPskQajTRcP" target="_blank">📂 View My Program Codes</a>
-      </div>
-    </div>
-  </section>
+  <!-- JavaScript for Scroll Animation -->
+  <script>
+    const hiddenSections = document.querySelectorAll('.hidden');
 
-  <!-- Class Notes Section -->
-  <section id="notes">
-    <div class="card">
-      <h2>📒 Class Notes</h2>
-      <div class="links">
-        <a href="https://drive.google.com/drive/folders/1wIUcqGAFgREACY6jaJiEg5LK9_4le6YM" target="_blank">📂 View My Class Notes</a>
-      </div>
-    </div>
-  </section>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    hiddenSections.forEach(section => observer.observe(section));
+  </script>
 
 </body>
 </html>
-

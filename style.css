@@ -1,56 +1,86 @@
-/* Background animation */
-body {
+/* Reset */
+* {
   margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 0;
+  box-sizing: border-box;
   font-family: Arial, sans-serif;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
-  color: white;
+}
+
+/* Body Styling */
+body {
+  background: #0f172a; /* dark navy */
+  color: #f1f5f9;
+  line-height: 1.6;
   text-align: center;
 }
 
-@keyframes gradientBG {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
-}
-
-/* Container box */
+/* Main Container */
 .container {
-  background: rgba(0, 0, 0, 0.5);
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Sections */
+section {
+  background: #1e293b;
+  margin: 20px 0;
   padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Button style */
-button {
-  background: #23d5ab;
-  border: none;
-  padding: 12px 25px;
-  margin: 15px 0;
-  border-radius: 25px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-button:hover {
-  background: #23a6d5;
+section:hover {
+  transform: translateY(-5px);
 }
 
-/* Hidden section */
-.hidden {
-  display: none;
+/* Headings */
+h1, h2 {
+  margin-bottom: 15px;
+  color: #38bdf8; /* cyan accent */
 }
 
+/* Links */
 a {
-  color: #23d5ab;
   text-decoration: none;
+  color: #facc15; /* yellow accent */
+  font-weight: bold;
 }
+
 a:hover {
-  text-decoration: underline;
+  color: #f87171; /* red hover */
+}
+
+/* Social Media Icons */
+.social-icons {
+  margin-top: 15px;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 28px;
+  color: #38bdf8;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #facc15;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  section {
+    padding: 20px;
+  }
+
+  .social-icons a {
+    font-size: 24px;
+  }
 }

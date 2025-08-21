@@ -3,25 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - My Website</title>
+  <title>Mrinmay Kachari</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="container">
+    <h1>Welcome to My Website</h1>
+    <p>Click below to explore</p>
+    <button onclick="showContent()">Click Me</button>
+    
+    <div id="content" class="hidden">
+      <h2>About Me</h2>
+      <p>Name - Mrinmay Kachari</p>
+      <p>Hobbies - Running, Playing Football, Volleyball, Tracking</p>
+      <p>Email - mboro3719@gmail.com</p>
+      <p>Phone - 6003260207</p>
+      <p>GitHub - <a href="https://github.com/mrxMrinmay" target="_blank">mrxMrinmay</a></p>
 
-  <!-- Navigation Menu -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Me</a></li>
-      <li><a href="programs.html">Programs Repository</a></li>
-      <li><a href="notes.html">Class Notes</a></li>
-      <li><a href="social.html">Social Links</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+      <h2>Socials</h2>
+      <p>
+        <a href="https://www.instagram.com/mrinmaykacharii" target="_blank">Instagram</a> | 
+        <a href="https://www.facebook.com/mrinmoy.kachari.75" target="_blank">Facebook</a>
+      </p>
 
-  <h1>Welcome to My Website</h1>
-  <p>This is the home page.</p>
+      <h2>Programs</h2>
+      <p><a href="https://drive.google.com/drive/folders/1wMhRXKAMOJIqgk3S4GwKnjPskQajTRcP" target="_blank">My Programs</a></p>
 
+      <h2>Notes</h2>
+      <p><a href="https://drive.google.com/drive/folders/1wIUcqGAFgREACY" target="_blank">My Notes</a></p>
+    </div>
+  </div>
+
+  <script>
+    function showContent() {
+      document.getElementById("content").classList.remove("hidden");
+    }
+  </script>
 </body>
 </html>

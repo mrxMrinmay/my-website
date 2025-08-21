@@ -3,53 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Glowing Gradient Button</title>
+  <title>My Personal Website</title>
   <style>
     body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background: #0d0d0d;
       margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0d0d0d;
+      color: #fff;
     }
 
+    header {
+      background: #111;
+      padding: 15px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #00ffcc;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00ffcc;
+    }
+
+    section {
+      padding: 50px;
+      text-align: center;
+    }
+
+    /* Button Styling */
     .btn {
+      margin-top: 20px;
       padding: 15px 40px;
       font-size: 18px;
-      font-family: Arial, sans-serif;
       color: #fff;
       border: none;
       border-radius: 15px;
       cursor: pointer;
       outline: none;
       transition: transform 0.4s ease, box-shadow 0.4s ease;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-
-      /* Gradient background with animation */
       background: linear-gradient(270deg, #ff00ff, #0072ff, #00ffcc, #ffcc00, #ff0066);
       background-size: 400% 400%;
       animation: gradientShift 8s ease infinite;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
-    /* Gradient animation keyframes */
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
-    /* Desktop hover glow */
     .btn:hover {
-      transform: rotate(-8deg) scale(1.1);
+      transform: scale(1.1);
       box-shadow: 0 0 25px #ff00ff,
                   0 0 50px #0072ff,
                   0 0 75px #00ffcc;
     }
 
-    /* Mobile tap glow effect */
     .btn.active {
-      transform: rotate(8deg) scale(1.1);
+      transform: scale(1.1);
       box-shadow: 0 0 25px #ff00ff,
                   0 0 50px #0072ff,
                   0 0 75px #00ffcc,
@@ -58,16 +86,43 @@
   </style>
 </head>
 <body>
-  <button class="btn">Touch Me!</button>
+
+  <header>
+    <h1>Welcome to My Website</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home">
+    <h2>Home</h2>
+    <p>Hello! 👋 This is my personal website. Explore to know more about me.</p>
+    <button class="btn">Click Me</button>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>My name is [Your Name].</p>
+    <p>I am currently a BSc Computer Science student.</p>
+    <p>My hobbies include sports, coding, and reading.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: yourname@email.com</p>
+    <p>Phone: +91 9876543210</p>
+    <p>Social: <a href="https://github.com/" target="_blank">GitHub</a></p>
+  </section>
 
   <script>
     const btn = document.querySelector(".btn");
-
     btn.addEventListener("click", () => {
       btn.classList.add("active");
       setTimeout(() => {
         btn.classList.remove("active");
-      }, 1500); // glow stays for 1.5s
+      }, 1500);
     });
   </script>
 </body>

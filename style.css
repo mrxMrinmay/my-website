@@ -1,41 +1,56 @@
+/* Background animation */
 body {
   margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: Arial, sans-serif;
-  background: #f4f4f4;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: white;
   text-align: center;
 }
 
-nav {
-  background-color: #2c3e50;
-  padding: 15px 0;
+@keyframes gradientBG {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-  gap: 50px;
+/* Container box */
+.container {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 
-nav ul li {
-  display: inline-block;
-}
-
-nav ul li a {
-  text-decoration: none;
-  color: white;
+/* Button style */
+button {
+  background: #23d5ab;
+  border: none;
+  padding: 12px 25px;
+  margin: 15px 0;
+  border-radius: 25px;
   font-size: 16px;
-  font-weight: bold;
-  transition: color 0.3s ease;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  background: #23a6d5;
 }
 
-nav ul li a:hover {
-  color: #f39c12;
+/* Hidden section */
+.hidden {
+  display: none;
 }
 
-h1 {
-  margin-top: 40px;
-  color: #2c3e50;
+a {
+  color: #23d5ab;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
 }

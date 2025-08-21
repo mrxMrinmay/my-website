@@ -1,4 +1,4 @@
-          <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -30,28 +30,43 @@
     }
     .glow-btn {
       padding: 15px 40px;
-      background: linear-gradient(45deg, yellow, lime, cyan);
+      background: linear-gradient(45deg, #ff00cc, #3333ff, #00ffcc, #ffff00);
+      background-size: 400% 400%;
       color: white;
       font-size: 18px;
       font-weight: bold;
       border: none;
       border-radius: 12px;
       cursor: pointer;
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
+      box-shadow: 
+        0 0 10px #ff00cc,
+        0 0 20px #3333ff,
+        0 0 40px #00ffcc,
+        0 0 60px #ffff00;
+      animation: glow 3s ease-in-out infinite, gradient 6s ease infinite;
       transition: transform 0.2s;
     }
     .glow-btn:hover {
       transform: scale(1.1);
-      box-shadow: 0 0 35px rgba(0, 255, 255, 1);
     }
-    /* Hidden section style */
-    #about, #contact {
+    /* Fade in effect */
+    #about, #contact, #programs, #notes {
       display: none;
       animation: fadeIn 1s ease-in-out;
     }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes glow {
+      0% { box-shadow: 0 0 10px #ff00cc, 0 0 20px #3333ff, 0 0 40px #00ffcc, 0 0 60px #ffff00; }
+      50% { box-shadow: 0 0 20px #ffff00, 0 0 40px #00ffcc, 0 0 60px #3333ff, 0 0 80px #ff00cc; }
+      100% { box-shadow: 0 0 10px #ff00cc, 0 0 20px #3333ff, 0 0 40px #00ffcc, 0 0 60px #ffff00; }
+    }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     footer {
       background-color: #111;
@@ -67,6 +82,8 @@
       <a href="#home">Home</a>
       <a href="#about">About Me</a>
       <a href="#contact">Contact</a>
+      <a href="#programs">Programs</a>
+      <a href="#notes">Class Notes</a>
     </nav>
   </header>
 
@@ -90,6 +107,18 @@
     <p>GitHub: <a href="https://github.com/mrxMrinmay" target="_blank" style="color:#00ffcc;">github.com/mrxMrinmay</a></p>
   </section>
 
+  <section id="programs">
+    <h2>Programs Repository</h2>
+    <p>Here you can find my coding projects and subject programs:</p>
+    <p><a href="https://drive.google.com/drive/folders/1wMhRXKAMOJIqgk3S4GwKnjPskQajTRcP" target="_blank" style="color:#00ffcc;">📂 Open My Programs</a></p>
+  </section>
+
+  <section id="notes">
+    <h2>Class Notes</h2>
+    <p>Here are my class notes for the current semester:</p>
+    <p><a href=" https://drive.google.com/drive/folders/1wIUcqGAFgREACY6jaJiEg5LK9_4le6YM" target="_blank" style="color:#00ffcc;">📝 Open My Notes</a></p>
+  </section>
+
   <footer>
     <p>© 2025 Mrinmay Kachari. All rights reserved.</p>
   </footer>
@@ -98,7 +127,9 @@
     function showDetails() {
       document.getElementById("about").style.display = "block";
       document.getElementById("contact").style.display = "block";
-      document.getElementById("home").scrollIntoView({ behavior: "smooth" });
+      document.getElementById("programs").style.display = "block";
+      document.getElementById("notes").style.display = "block";
+      document.getElementById("about").scrollIntoView({ behavior: "smooth" });
     }
   </script>
 </body>

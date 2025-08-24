@@ -4,7 +4,183 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mrinmay Kachari - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden;
+            background-color: #1a1a1a; /* Dark, professor-like color */
+            font-family: 'Georgia', serif; /* Classic serif font for a scholarly feel */
+            color: #d1c4e9; /* Light purple for text */
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Palatino', 'Book Antiqua', serif; /* A more elegant font for headings */
+            color: #ffeb3b; /* A subtle, gold color for headings */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #d1c4e9;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #3e2723; /* A deep brown color */
+            color: #ffeb3b;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.5s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #5d4037; /* Lighter brown on hover */
+            transform: translateY(-3px);
+        }
+
+        /* --- Loading Screen Styles --- */
+        #loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
+        }
+
+        .loader-text {
+            font-size: 4em;
+            font-weight: bold;
+            letter-spacing: 5px;
+            color: #ffeb3b;
+            animation: pulse-glow 1.5s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff;
+            }
+            50% {
+                text-shadow: 0 0 20px #ffeb3b, 0 0 40px #ffeb3b, 0 0 60px #ffeb3b;
+            }
+            100% {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff;
+            }
+        }
+
+        /* --- Parallax Scrolling Effect --- */
+        .parallax-container {
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            perspective: 1px;
+            perspective-origin: 0% 0%;
+        }
+
+        .parallax-layer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transform-style: preserve-3d;
+        }
+
+        .parallax-layer-back {
+            transform: translateZ(-2px) scale(3);
+            background-color: #3e2723; /* Darker brown for the background layer */
+            background-image: url('https://images.unsplash.com/photo-1516979187457-637fd6013853?fit=crop&w=1500&q=80'); /* A bookshelf background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .parallax-layer-front {
+            transform: translateZ(0);
+            background-color: transparent;
+        }
+
+        .section {
+            padding: 80px 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero {
+            background-color: transparent;
+        }
+
+        /* About Me Section */
+        #about {
+            background-color: rgba(33, 33, 33, 0.8); /* Dark, semi-transparent background */
+        }
+        
+        #about .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        #about .about-content img {
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        #about .about-content img:hover {
+            transform: scale(1.05);
+        }
+
+        #about .about-content p {
+            flex-grow: 1;
+            font-size: 1.1rem;
+        }
+
+        /* All other sections get a semi-transparent background to see the parallax effect */
+        #skills, #class-notes, #programs-repo, #contact {
+            background-color: rgba(33, 33, 33, 0.8);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            #about .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -27,74 +203,77 @@
         </div>
     </nav>
 
-    <main class="dimension-container">
-        <header id="hero" class="hero dimension-section">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Hi, I'm Mrinmay Kachari</h1>
-                    <p>A B.Sc. Computer Science student with a passion for technology, sports, and serving the nation.</p>
-                    <a href="#contact" class="btn">Get in Touch</a>
-                </div>
-            </div>
-        </header>
-
-        <section id="about" class="section dimension-section">
-            <div class="container">
-                <h2>About Me 🙋‍♂️</h2>
-                <div class="about-content">
-                    <img src="https://via.placeholder.com/300" alt="Mrinmay Kachari Profile Picture">
-                    <p>
-                        I am a B.Sc. Computer Science student with a deep interest in technology. Beyond my studies, I am a passionate sports lover, enjoying football, volleyball, and running. My ultimate goal is to serve the nation as a defense personnel, and I am committed to achieving my physical and mental aspirations.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="section dimension-section">
-            <div class="container">
-                <h2>Skills 🛠️</h2>
-                <div class="skills-grid">
-                    <div class="skill-card"><h3>Intermediate Coding</h3></div>
-                    <div class="skill-card"><h3>Cyber Security(in learning process)</h3></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="class-notes" class="section dimension-section">
-            <div class="container">
-                <h2>Class Notes 📚</h2>
-                <p>Here you'll find my organized notes from various online courses and classes. These links will take you to my Google Drive where you can view or download the PDFs.</p>
-                <div class="notes-grid">
-                    <div class="notes-card">
-                        <h3>All Class Notes</h3>
-                        <a href="https://drive.google.com/drive/folders/1wIUcqGAFgREACY6jaJiEg5LK9_4le6YM" target="_blank" class="btn">View Notes</a>
+    <main class="parallax-container">
+        <div class="parallax-layer parallax-layer-back"></div>
+        <div class="parallax-layer parallax-layer-front">
+            <header id="hero" class="hero section">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Hi, I'm Mrinmay Kachari</h1>
+                        <p>A B.Sc. Computer Science student with a passion for technology, sports, and serving the nation.</p>
+                        <a href="#contact" class="btn">Get in Touch</a>
                     </div>
                 </div>
-            </div>
-        </section>
+            </header>
 
-        <section id="programs-repo" class="section dimension-section">
-            <div class="container">
-                <h2>Programs Repository 💻</h2>
-                <p>Check out my coding projects and program files. These links lead to a repository on my Google Drive.</p>
-                <div class="programs-grid">
-                    <div class="programs-card">
-                        <h3>My Programs</h3>
-                        <a href="https://drive.google.com/drive/folders/1wMhRXKAMOJIqgk3S4GwKnjPskQajTRcP" target="_blank" class="btn">View Programs</a>
+            <section id="about" class="section">
+                <div class="container">
+                    <h2>About Me 🙋‍♂️</h2>
+                    <div class="about-content">
+                        <img src="https://via.placeholder.com/300" alt="Mrinmay Kachari Profile Picture">
+                        <p>
+                            I am a B.Sc. Computer Science student with a deep interest in technology. Beyond my studies, I am a passionate sports lover, enjoying football, volleyball, and running. My ultimate goal is to serve the nation as a defense personnel, and I am committed to achieving my physical and mental aspirations.
+                        </p>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="contact" class="section dimension-section">
-            <div class="container">
-                <h2>Contact Me 📧</h2>
-                <p>Feel free to reach out to me via email or connect with me on social media.</p>
-                <p>Email: <a href="mailto:mboro3719@gmail.com">mboro3719@gmail.com</a></p>
-                <p>Instagram: <a href="https://www.instagram.com/mrinmaykacharii" target="_blank">mrinmaykacharii</a></p>
-                <p>GitHub: <a href="https://github.com/mrxmrinmay" target="_blank">mrxmrinmay</a></p>
-            </div>
-        </section>
+            <section id="skills" class="section">
+                <div class="container">
+                    <h2>Skills 🛠️</h2>
+                    <div class="skills-grid">
+                        <div class="skill-card"><h3>Intermediate Coding</h3></div>
+                        <div class="skill-card"><h3>Cyber Security</h3></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="class-notes" class="section">
+                <div class="container">
+                    <h2>Class Notes 📚</h2>
+                    <p>Here you'll find my organized notes from various online courses and classes. These links will take you to my Google Drive where you can view or download the PDFs.</p>
+                    <div class="notes-grid">
+                        <div class="notes-card">
+                            <h3>All Class Notes</h3>
+                            <a href="https://drive.google.com/drive/folders/1wIUcqGAFgREACY6jaJiEg5LK9_4le6YM" target="_blank" class="btn">View Notes</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="programs-repo" class="section">
+                <div class="container">
+                    <h2>Programs Repository 💻</h2>
+                    <p>Check out my coding projects and program files. These links lead to a repository on my Google Drive.</p>
+                    <div class="programs-grid">
+                        <div class="programs-card">
+                            <h3>My Programs</h3>
+                            <a href="https://drive.google.com/drive/folders/1wMhRXKAMOJIqgk3S4GwKnjPskQajTRcP" target="_blank" class="btn">View Programs</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="section">
+                <div class="container">
+                    <h2>Contact Me 📧</h2>
+                    <p>Feel free to reach out to me via email or connect with me on social media.</p>
+                    <p>Email: <a href="mailto:mboro3719@gmail.com">mboro3719@gmail.com</a></p>
+                    <p>Instagram: <a href="https://www.instagram.com/mrinmaykacharii" target="_blank">mrinmaykacharii</a></p>
+                    <p>GitHub: <a href="https://github.com/mrxmrinmay" target="_blank">mrxmrinmay</a></p>
+                </div>
+            </section>
+        </div>
     </main>
     
     <footer>
@@ -103,7 +282,30 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-</body>
-Security(
+    <script>
+        // --- Loader Hiding Functionality ---
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader-container');
+            loader.style.opacity = '0';
+            loader.style.visibility = 'hidden';
+        });
 
+        // --- Fallback to ensure loader hides after 1.5 seconds ---
+        setTimeout(() => {
+            const loader = document.getElementById('loader-container');
+            loader.style.opacity = '0';
+            loader.style.visibility = 'hidden';
+        }, 1500); // 1500 milliseconds = 1.5 seconds
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

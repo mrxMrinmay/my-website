@@ -1,114 +1,434 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mrinmay Kachari - Personal Website</title>
-  <style>
-    body {
-      background: black;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srijan Karki - Portfolio</title>
+    <style>
+        /* General Styles & Animations */
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #343a40;
+            --light-bg: #f8f9fa;
+            --dark-bg: #e9ecef;
+            --text-color: #333;
+            --heading-color: #222;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --transition-speed: 0.5s;
+        }
 
-    h1, h2 {
-      color: #00ffcc;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    .hidden-section {
-      display: none; 
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            transition: background-color var(--transition-speed);
+        }
 
-    .show {
-      display: block;
-      opacity: 1;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    .btn {
-      background: #00ffcc;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 25px;
-      font-size: 18px;
-      cursor: pointer;
-      margin-top: 20px;
-      box-shadow: 0 0 20px #00ffcc;
-      transition: 0.3s;
-    }
+        .section {
+            padding: 80px 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
 
-    .btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 35px #00ffcc;
-    }
+        .section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-    /* Social media icons */
-    .social-links a {
-      margin: 0 10px;
-      display: inline-block;
-      transition: transform 0.3s, filter 0.3s;
-    }
+        h1, h2, h3 {
+            color: var(--heading-color);
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-    .social-links a:hover {
-      transform: scale(1.2);
-      filter: drop-shadow(0 0 10px #00ffcc);
-    }
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color var(--transition-speed), transform 0.3s;
+        }
 
-    .social-links img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-    }
-  </style>
+        .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-in-out 0.5s;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: background-color var(--transition-speed);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            margin: 0;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            padding: 10px 15px;
+            font-weight: bold;
+            transition: color var(--transition-speed);
+        }
+
+        .nav-links li a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* About Me Section */
+        #about .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        #about .about-content img {
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        #about .about-content img:hover {
+            transform: scale(1.05);
+        }
+
+        #about .about-content p {
+            flex-grow: 1;
+            font-size: 1.1rem;
+        }
+
+        /* Skills Section */
+        #skills .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        
+        #skills .skill-card {
+            background-color: var(--dark-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        #skills .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Projects Section */
+        #projects .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        #projects .project-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        #projects .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        #projects .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        #projects .project-card-content {
+            padding: 20px;
+        }
+
+        #projects .project-card-content h3 {
+            margin-top: 0;
+        }
+        
+        /* Notes and Programs Section */
+        .notes-grid, .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .notes-card, .programs-card {
+            background-color: var(--dark-bg);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .notes-card:hover, .programs-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: var(--secondary-color);
+            color: #fff;
+            text-align: center;
+        }
+        
+        #contact a {
+            color: #fff;
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: var(--secondary-color);
+            color: #fff;
+            border-top: 1px solid #444;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-links li {
+                padding: 5px 0;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            #about .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#class-notes">Notes</a></li>
+                <li><a href="#programs-repo">Programs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-  <!-- Home Section -->
-  <h1>Home</h1>
-  <p>Hello! 👋 This is my personal website. Click below to know more about me.</p>
-  <button id="clickBtn" class="btn" onclick="showSections()">Click Me</button>
+    <header id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hi, I'm Srijan Karki</h1>
+                <p>A passionate Computer Engineering student with a keen interest in web development, particularly in the MERN stack.</p>
+                <a href="#contact" class="btn">Get in Touch</a>
+            </div>
+        </div>
+    </header>
 
-  <!-- Sections Hidden Initially -->
-  <div id="moreSections" class="hidden-section">
+    <main>
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About Me 🙋‍♂️</h2>
+                <div class="about-content">
+                    <img src="https://via.placeholder.com/300" alt="Srijan Karki Profile Picture">
+                    <p>
+                        I am a Computer Engineering student from Islington College, Kathmandu, with a strong focus on full-stack development. I specialize in the **MERN stack** (MongoDB, Express.js, React, Node.js) and enjoy building dynamic, interactive web applications. My training and hands-on experience have equipped me with the skills to tackle complex challenges head-on and consistently strive for excellence. I'm always eager to explore new technologies and collaborate on projects that push the boundaries of what's possible in the digital world.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="container">
+                <h2>Skills 🛠️</h2>
+                <div class="skills-grid">
+                    <div class="skill-card"><h3>HTML5</h3></div>
+                    <div class="skill-card"><h3>CSS3</h3></div>
+                    <div class="skill-card"><h3>JavaScript</h3></div>
+                    <div class="skill-card"><h3>React.js</h3></div>
+                    <div class="skill-card"><h3>Node.js</h3></div>
+                    <div class="skill-card"><h3>Express.js</h3></div>
+                    <div class="skill-card"><h3>MongoDB</h3></div>
+                    <div class="skill-card"><h3>Git & GitHub</h3></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <h2>Projects 💡</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/400x200" alt="Project 1 Image">
+                        <div class="project-card-content">
+                            <h3>Project Name 1</h3>
+                            <p>A brief description of your first project. Mention the technologies you used and its main features.</p>
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/400x200" alt="Project 2 Image">
+                        <div class="project-card-content">
+                            <h3>Project Name 2</h3>
+                            <p>A brief description of your second project. Mention the technologies you used and its main features.</p>
+                            <a href="#" class="btn">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="class-notes" class="section">
+            <div class="container">
+                <h2>Class Notes 📚</h2>
+                <p>Here you'll find my organized notes from various online courses and classes. These links will take you to my Google Drive where you can view or download the PDFs.</p>
+                <div class="notes-grid">
+                    <div class="notes-card">
+                        <h3>Web Development Notes</h3>
+                        <a href="YOUR_GOOGLE_DRIVE_LINK_FOR_NOTES" target="_blank" class="btn">View Notes</a>
+                    </div>
+                    <div class="notes-card">
+                        <h3>Data Structures Notes</h3>
+                        <a href="YOUR_GOOGLE_DRIVE_LINK_FOR_NOTES" target="_blank" class="btn">View Notes</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="programs-repo" class="section">
+            <div class="container">
+                <h2>Programs Repository 💻</h2>
+                <p>Check out my coding projects and program files. These links lead to a repository on my Google Drive.</p>
+                <div class="programs-grid">
+                    <div class="programs-card">
+                        <h3>Python Programs</h3>
+                        <a href="YOUR_GOOGLE_DRIVE_LINK_FOR_PYTHON_REPO" target="_blank" class="btn">View Programs</a>
+                    </div>
+                    <div class="programs-card">
+                        <h3>MERN Projects</h3>
+                        <a href="YOUR_GOOGLE_DRIVE_LINK_FOR_MERN_REPO" target="_blank" class="btn">View Programs</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Contact Me 📧</h2>
+                <p>I'm always open to new opportunities. Feel free to reach out!</p>
+                <p>Email: <a href="mailto:srijankarki@islington.edu.np">srijankarki@islington.edu.np</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/srijankarki" target="_blank">linkedin.com/in/srijankarki</a></p>
+                <p>GitHub: <a href="https://github.com/SrijanKarki" target="_blank">github.com/SrijanKarki</a></p>
+            </div>
+        </section>
+    </main>
     
-    <!-- About Me -->
-    <h2>About Me</h2>
-    <p>My name is Mrinmay Kachari.<br>
-    I am currently a BSc Computer Science student.<br>
-    My hobbies include running, playing football, volleyball, and trekking.</p>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Srijan Karki. All rights reserved.</p>
+        </div>
+    </footer>
 
-    <!-- Programs Repository -->
-    <h2>Programs Repository</h2>
-    <p>Here you can find all my program codes:</p>
-    <a href="https://drive.google.com/drive/folders/1wMhRXKAMOJIqgk3S4GwKnjPskQajTRcP" target="_blank">View My Programs</a>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
 
-    <!-- Class Notes -->
-    <h2>Class Notes</h2>
-    <p>Here you can access my class notes:</p>
-    <a href="https://drive.google.com/drive/folders/1wIUcqGAFgREACY6jaJiEg5LK9_4le6YM" target="_blank">View Notes</a>
+            // Intersection Observer for fade-in animations
+            const sections = document.querySelectorAll('.section');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.2 });
 
-    <!-- Social Media -->
-    <h2>Connect With Me</h2>
-    <div class="social-links">
-      <a href="https://www.instagram.com/mrinmaykacharii" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
-      </a>
-      <a href="https://www.facebook.com/mrinmoy.kachari.75" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
-      </a>
-    </div>
-  </div>
-
-  <script>
-    function showSections() {
-      let sections = document.getElementById("moreSections");
-      sections.classList.add("show"); // Show with fade effect
-      document.getElementById("clickBtn").style.display = "none"; // Hide button
-    }
-  </script>
-
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
 </body>
 </html>
-

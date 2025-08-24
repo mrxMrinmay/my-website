@@ -1,87 +1,246 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+/* General Styles & Animations */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #343a40;
+    --light-bg: #f8f9fa;
+    --dark-bg: #e9ecef;
+    --text-color: #333;
+    --heading-color: #222;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --transition-speed: 0.5s;
 }
 
-/* Body Styling */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-  background: #0f172a; /* dark navy */
-  color: #f1f5f9;
-  line-height: 1.6;
-  text-align: center;
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    background-color: #0a0a0a; /* Changed to match the effect */
+    transition: background-color var(--transition-speed);
+    overflow-x: hidden;
 }
 
-/* Main Container */
 .container {
-  width: 90%;
-  max-width: 1000px;
-  margin: auto;
-  padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* Sections */
-section {
-  background: #1e293b;
-  margin: 20px 0;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease-in-out;
+.section {
+    padding: 80px 0;
+    opacity: 1; /* Retaining visibility for the effect */
+    transition: none; /* Removing old animation */
 }
 
-section:hover {
-  transform: translateY(-5px);
+h1, h2, h3 {
+    color: #fff; /* Changed to white for dark background */
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-/* Headings */
-h1, h2 {
-  margin-bottom: 15px;
-  color: #38bdf8; /* cyan accent */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color var(--transition-speed), transform 0.3s;
 }
 
-/* Links */
-a {
-  text-decoration: none;
-  color: #facc15; /* yellow accent */
-  font-weight: bold;
+.btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+        
+/* --- Loading Screen Styles for "mrxpentium" --- */
+#loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
 }
 
-a:hover {
-  color: #f87171; /* red hover */
+.loader-text {
+    font-size: 4em;
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: #fff;
+    animation: pulse-glow 2.5s infinite;
 }
 
-/* Social Media Icons */
-.social-icons {
-  margin-top: 15px;
+@keyframes pulse-glow {
+    0% {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff;
+    }
+    50% {
+        text-shadow: 0 0 20px #0ff, 0 0 40px #0ff, 0 0 60px #0ff;
+    }
+    100% {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff;
+    }
 }
 
-.social-icons a {
-  display: inline-block;
-  margin: 0 10px;
-  font-size: 28px;
-  color: #38bdf8;
-  transition: color 0.3s ease;
+/* --- New Inter-Dimensional Scroll Effect Styles --- */
+.dimension-container {
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
+    height: auto;
 }
 
-.social-icons a:hover {
-  color: #facc15;
+.dimension-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    will-change: transform;
+    padding: 80px 20px;
+    background-color: #0a0a0a;
+    color: #fff;
+    text-align: center;
+    transform-style: preserve-3d;
+    transform: translate3d(0, 0, 0px) rotateX(0deg);
+}
+        
+/* --- Hero Section --- */
+.hero {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: #fff;
 }
 
-/* Responsive for Mobile */
-@media (max-width: 768px) {
-  body {
-    font-size: 16px;
-  }
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+}
 
-  section {
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+/* About Me Section */
+#about .about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 40px;
+}
+        
+#about .about-content img {
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    transition: transform 0.5s ease-in-out;
+}
+
+#about .about-content img:hover {
+    transform: scale(1.05);
+}
+
+#about .about-content p {
+    flex-grow: 1;
+    font-size: 1.1rem;
+}
+
+/* Skills Section */
+#skills .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+        
+#skills .skill-card {
+    background-color: #1a1a1a;
     padding: 20px;
-  }
-
-  .social-icons a {
-    font-size: 24px;
-  }
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+        
+#skills .skill-card:hover {
+    transform: translateY(-5px);
 }
 
+/* Class Notes and Programs Section */
+#class-notes, #programs-repo {
+    background-color: #0a0a0a;
+}
+        
+.notes-grid, .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.notes-card, .programs-card {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.notes-card:hover, .programs-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Contact Section */
+#contact {
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+}
+        
+#contact a {
+    color: #fff;
+    text-decoration: underline;
+}
+        
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #343a40;
+    color: #fff;
+    border-top: 1px solid #444;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-links li {
+        padding: 5px 0;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    #about .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}

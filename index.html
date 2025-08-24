@@ -4,248 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mrinmay Kachari - Portfolio</title>
-    <style>
-        /* General Styles & Animations */
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #343a40;
-            --light-bg: #f8f9fa;
-            --dark-bg: #e9ecef;
-            --text-color: #333;
-            --heading-color: #222;
-            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            --transition-speed: 0.5s;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-family);
-            line-height: 1.6;
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            background-color: var(--light-bg);
-            transition: background-color var(--transition-speed);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section {
-            padding: 80px 0;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-
-        .section.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        h1, h2, h3 {
-            color: var(--heading-color);
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color var(--transition-speed), transform 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #0056b3;
-            transform: translateY(-3px);
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            color: #fff;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 15px;
-            animation: fadeInDown 1s ease-in-out;
-        }
-
-        .hero-content p {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            animation: fadeInUp 1s ease-in-out 0.5s;
-        }
-
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            transition: background-color var(--transition-speed);
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            padding: 15px 0;
-            margin: 0;
-        }
-
-        .nav-links li a {
-            text-decoration: none;
-            color: var(--secondary-color);
-            padding: 10px 15px;
-            font-weight: bold;
-            transition: color var(--transition-speed);
-        }
-
-        .nav-links li a:hover {
-            color: var(--primary-color);
-        }
-        
-        /* About Me Section */
-        #about .about-content {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 40px;
-        }
-        
-        #about .about-content img {
-            max-width: 300px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            flex-shrink: 0;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        #about .about-content img:hover {
-            transform: scale(1.05);
-        }
-
-        #about .about-content p {
-            flex-grow: 1;
-            font-size: 1.1rem;
-        }
-
-        /* Skills Section */
-        #skills .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            text-align: center;
-        }
-        
-        #skills .skill-card {
-            background-color: var(--dark-bg);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
-        }
-        
-        #skills .skill-card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Class Notes and Programs Section */
-        #class-notes, #programs-repo {
-            padding: 80px 0;
-        }
-        
-        .notes-grid, .programs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .notes-card, .programs-card {
-            background-color: var(--dark-bg);
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .notes-card:hover, .programs-card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Contact Section */
-        #contact {
-            background-color: var(--secondary-color);
-            color: #fff;
-            text-align: center;
-        }
-        
-        #contact a {
-            color: #fff;
-            text-decoration: underline;
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            background-color: var(--secondary-color);
-            color: #fff;
-            border-top: 1px solid #444;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                flex-direction: column;
-                text-align: center;
-            }
-            .nav-links li {
-                padding: 5px 0;
-            }
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            .hero-content p {
-                font-size: 1.2rem;
-            }
-            #about .about-content {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <div id="loader-container">
+        <div class="loader-text-wrapper">
+            <span class="loader-text">mrxpentium</span>
+        </div>
+    </div>
+    
     <nav class="navbar">
         <div class="container">
             <ul class="nav-links">
@@ -259,18 +27,18 @@
         </div>
     </nav>
 
-    <header id="hero" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Hi, I'm Mrinmay Kachari</h1>
-                <p>A B.Sc. Computer Science student with a passion for technology, sports, and serving the nation.</p>
-                <a href="#contact" class="btn">Get in Touch</a>
+    <main class="dimension-container">
+        <header id="hero" class="hero dimension-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Hi, I'm Mrinmay Kachari</h1>
+                    <p>A B.Sc. Computer Science student with a passion for technology, sports, and serving the nation.</p>
+                    <a href="#contact" class="btn">Get in Touch</a>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <main>
-        <section id="about" class="section">
+        <section id="about" class="section dimension-section">
             <div class="container">
                 <h2>About Me 🙋‍♂️</h2>
                 <div class="about-content">
@@ -282,17 +50,17 @@
             </div>
         </section>
 
-        <section id="skills" class="section">
+        <section id="skills" class="section dimension-section">
             <div class="container">
                 <h2>Skills 🛠️</h2>
                 <div class="skills-grid">
                     <div class="skill-card"><h3>Intermediate Coding</h3></div>
-                    <div class="skill-card"><h3>Cyber Security beginner </h3></div>
+                    <div class="skill-card"><h3>Cyber Security(in learning process)</h3></div>
                 </div>
             </div>
         </section>
 
-        <section id="class-notes" class="section">
+        <section id="class-notes" class="section dimension-section">
             <div class="container">
                 <h2>Class Notes 📚</h2>
                 <p>Here you'll find my organized notes from various online courses and classes. These links will take you to my Google Drive where you can view or download the PDFs.</p>
@@ -305,7 +73,7 @@
             </div>
         </section>
 
-        <section id="programs-repo" class="section">
+        <section id="programs-repo" class="section dimension-section">
             <div class="container">
                 <h2>Programs Repository 💻</h2>
                 <p>Check out my coding projects and program files. These links lead to a repository on my Google Drive.</p>
@@ -318,7 +86,7 @@
             </div>
         </section>
 
-        <section id="contact">
+        <section id="contact" class="section dimension-section">
             <div class="container">
                 <h2>Contact Me 📧</h2>
                 <p>Feel free to reach out to me via email or connect with me on social media.</p>
@@ -335,34 +103,6 @@
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-
-            // Intersection Observer for fade-in animations
-            const sections = document.querySelectorAll('.section');
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
-                });
-            }, { threshold: 0.2 });
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
-</html>
-        
-
+Security(

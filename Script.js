@@ -6,6 +6,13 @@ window.addEventListener('load', () => {
     loader.style.visibility = 'hidden';
 });
 
+// --- Fallback to ensure loader hides after 1.5 seconds ---
+setTimeout(() => {
+    const loader = document.getElementById('loader-container');
+    loader.style.opacity = '0';
+    loader.style.visibility = 'hidden';
+}, 1500); // 1500 milliseconds = 1.5 seconds
+
 // --- Scrolling Animation Functionality ---
 const sections = document.querySelectorAll('.dimension-section');
 

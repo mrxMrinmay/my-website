@@ -11,7 +11,8 @@
             padding: 0;
             height: 100%;
             overflow-x: hidden;
-            background-color: #0a0a0a;
+            /* Changed to solid black */
+            background-color: #000;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #fff;
             scroll-behavior: smooth;
@@ -104,7 +105,8 @@
             position: relative;
             will-change: transform;
             padding: 80px 20px;
-            background-color: #0a0a0a;
+            /* Changed to solid black */
+            background-color: #000;
             color: #fff;
             text-align: center;
             transform-style: preserve-3d;
@@ -174,7 +176,8 @@
 
         /* Class Notes and Programs Section */
         #class-notes, #programs-repo {
-            background-color: #0a0a0a;
+            /* Changed to solid black */
+            background-color: #000;
         }
         
         .notes-grid, .programs-grid {
@@ -202,11 +205,33 @@
             text-align: center;
         }
         
-        #contact a {
-            color: #fff;
-            text-decoration: underline;
+        /* Social icons container */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin-top: 20px;
         }
         
+        .social-icons a {
+            color: #fff;
+            transition: transform 0.3s, color 0.3s;
+            text-decoration: none;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            color: #007bff;
+        }
+
+        /* Style for SVG logos */
+        .social-icons svg {
+            width: 35px;
+            height: 35px;
+            fill: currentColor;
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -322,9 +347,23 @@
             <div class="container">
                 <h2>Contact Me 📧</h2>
                 <p>Feel free to reach out to me via email or connect with me on social media.</p>
-                <p>Email: <a href="mailto:mboro3719@gmail.com">mboro3719@gmail.com</a></p>
-                <p>Instagram: <a href="https://www.instagram.com/mrinmaykacharii" target="_blank">mrinmaykacharii</a></p>
-                <p>GitHub: <a href="https://github.com/mrxmrinmay" target="_blank">mrxmrinmay</a></p>
+                <div class="social-icons">
+                    <a href="mailto:mboro3719@gmail.com" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.435 24 5.457z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/mrinmaykacharii" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.973.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.991 5.827 16 8 16s2.444-.01 3.297-.048c.852-.04 1.433-.174 1.942-.372.526-.205.973-.478 1.417-.923a3.9 3.9 0 0 0 .923-1.417c.198-.51.333-1.09.372-1.942.039-.853.048-1.125.048-3.297s-.01-2.445-.048-3.298c-.04-.852-.174-1.433-.372-1.942A3.9 3.9 0 0 0 13.24 1.838a3.9 3.9 0 0 0-1.417-.923C11.433.222 10.85.087 10.001.048 9.149.01 8.877 0 8 0zm0 1.637c2.158 0 2.438.009 3.284.048.78.037 1.25.162 1.54.275.29.112.44.24.55.35s.24.26.35.55c.113.29.238.76.275 1.54.039.846.048 1.126.048 3.284s-.009 2.438-.048 3.284c-.037.78-.162 1.25-.275 1.54-.112.29-.24.44-.35.55s-.26.24-.55.35c-.29.113-.76.238-1.54.275-.846.039-1.126.048-3.284.048s-2.438-.009-3.284-.048c-.78-.037-1.25-.162-1.54-.275-.29-.112-.44-.24-.55-.35s-.24-.26-.35-.55c-.113-.29-.238-.76-.275-1.54-.039-.846-.048-1.126-.048-3.284s.009-2.438.048-3.284c.037-.78.162-1.25.275-1.54.112-.29.24-.44.35-.55s.26-.24.55-.35c.29-.113.76-.238 1.54-.275.846-.039 1.126-.048 3.284-.048zM8 4.88c-1.724 0-3.12 1.396-3.12 3.12s1.396 3.12 3.12 3.12 3.12-1.396 3.12-3.12S9.724 4.88 8 4.88zm0 1.637c.813 0 1.483.67 1.483 1.483S8.813 9.48 8 9.48s-1.483-.67-1.483-1.483S7.187 6.517 8 6.517zM12.922 3.12a.965.965 0 1 1-1.93 0 .965.965 0 0 1 1.93 0z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/mrxmrinmay" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.22 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
@@ -379,4 +418,6 @@
         });
     </script>
 </body>
-<Securityy
+</html>
+
+
